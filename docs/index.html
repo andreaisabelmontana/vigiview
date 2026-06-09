@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VigiView — adverse drug event explorer</title>
+  <meta name="description" content="VigiView: explore and visualise FAERS-style adverse drug event data — searchable case tables and pharmacovigilance dashboards. Runs entirely in your browser." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🩺</text></svg>" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">🩺 <strong>VigiView</strong> <span class="tag">adverse-event explorer</span></div>
+    <a class="repo" href="https://github.com/andreaisabelmontana/vigiview" target="_blank" rel="noopener">GitHub ↗</a>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="explore">🔎 Explore</button>
+    <button class="tab" data-tab="dashboards">📊 Dashboards</button>
+  </nav>
+
+  <!-- EXPLORE -->
+  <main id="explore" class="view">
+    <section class="panel">
+      <div class="explore-head">
+        <div class="seg" id="tableSeg">
+          <button data-table="Person" class="active">People</button>
+          <button data-table="Product">Products</button>
+          <button data-table="Injection">Injections</button>
+        </div>
+        <span id="resultCount" class="muted"></span>
+      </div>
+      <div id="filters" class="filters"></div>
+      <div class="table-wrap">
+        <table id="dataTable"><thead></thead><tbody></tbody></table>
+      </div>
+      <div class="pager">
+        <button id="prev" class="btn small">‹ Prev</button>
+        <span id="pageInfo" class="muted"></span>
+        <button id="next" class="btn small">Next ›</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- DASHBOARDS -->
+  <main id="dashboards" class="view" hidden>
+    <section class="kpis" id="kpis"></section>
+
+    <section class="panel">
+      <h2>👤 People</h2>
+      <div class="chart-grid">
+        <div class="card"><h3>Age distribution</h3><div id="ageChart"></div></div>
+        <div class="card"><h3>Gender</h3><div id="genderChart"></div></div>
+        <div class="card"><h3>Education</h3><div id="qualChart"></div></div>
+        <div class="card"><h3>Top reporting countries</h3><div id="countryChart"></div></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>💊 Products</h2>
+      <div class="card"><h3>Reports per drug <span class="muted">(drugs seen once grouped as “Other”)</span></h3><div id="productChart"></div></div>
+    </section>
+
+    <section class="panel">
+      <h2>💉 Injections</h2>
+      <div class="chart-grid">
+        <div class="card"><h3>Risk category</h3><div id="riskChart"></div></div>
+        <div class="card"><h3>Formulation type</h3><div id="typeChart"></div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    VigiView · synthetic FAERS-style data · built from scratch · MIT · 100% client-side
+  </footer>
+
+  <script src="charts.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
