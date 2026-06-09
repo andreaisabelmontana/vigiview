@@ -5,12 +5,11 @@ tables plus pharmacovigilance dashboards.
 
 **▶️ Live (runs entirely in your browser):** https://andreaisabelmontana.github.io/vigiview/
 
-Built from scratch as a learning project. The original *Medical-Data-Viewer* was
-a Django + MySQL app over the FDA Adverse Event Reporting System (FAERS) with
-search, visualisation and reporting. This rebuild keeps that core and drops the
-MySQL/Azure operational layer, mirroring the shape of a real app: a clean,
-tested analytics engine + a thin API, with a static client that doubles as the
-live site.
+Built from scratch. FAERS is the FDA's Adverse Event Reporting System — a large
+public database of reported adverse drug events. VigiView makes a slice of that
+kind of data explorable: search the case tables, then read the safety signals
+off the dashboards. It's structured like a real app — a clean, tested analytics
+engine + a thin API, with a static client that doubles as the live site.
 
 ## What's inside
 
